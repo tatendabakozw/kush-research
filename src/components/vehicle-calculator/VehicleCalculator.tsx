@@ -331,7 +331,7 @@ const VehicleCalculator = () => {
         {/* Surtax */}
         <div className="grid grid-cols-3">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
-            <p>Surtax(45%)</p>
+            <p>Surtax(35%)</p>
           </div>
           <div className="col-span-2 grid grid-cols-2">
             <input
