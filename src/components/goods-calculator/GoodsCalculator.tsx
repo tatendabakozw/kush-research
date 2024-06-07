@@ -199,6 +199,34 @@ const GoodsCalculator = () => {
             />
           </div>
         </div>
+
+        {/* Value added tax (14.5%) */}
+        <div className="grid grid-cols-3">
+          <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
+            <p>Value added tax (14.5%)</p>
+          </div>
+          <div className="col-span-2 grid grid-cols-2">
+            <input
+              type="text"
+              value={
+                (((parseFloat(free_on_board_value) +
+                  parseFloat(freight_and_insurance)) *
+                  (getSingleArray(
+                    getSingleArray(goods_data.goods_type, selected_goods_type)
+                      ?.categories,
+                    selected_good
+                  )?.duty_rate /
+                    100) +
+                  (parseFloat(free_on_board_value) +
+                    parseFloat(freight_and_insurance))) *
+                  14.5) /
+                100
+              }
+              className="p-2 col-span-2 bg-zinc-100 rounded-lg "
+              placeholder="Custom duty"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
