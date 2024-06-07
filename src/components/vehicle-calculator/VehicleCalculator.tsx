@@ -314,6 +314,20 @@ const VehicleCalculator = () => {
             />
           </div>
         </div>
+        {/* VTP */}
+        <div className="grid grid-cols-3">
+          <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
+            <p>VTP</p>
+          </div>
+          <div className="col-span-2 grid grid-cols-2">
+            <input
+              type="text"
+              value={value_for_duty + customs_duty}
+              className="p-2 col-span-2 bg-zinc-100 rounded-lg "
+              placeholder="VTP"
+            />
+          </div>
+        </div>
         {/* Value added tax */}
         <div className="grid grid-cols-3">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
