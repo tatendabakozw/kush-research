@@ -11,8 +11,8 @@ const GoodsCalculator = () => {
   const [selected_importation_method, setSelectedImportationMethod] =
     useState<any>("");
   const [selected_good, setSelectedGood] = useState("");
-  const [free_on_board_value, setFreeOnBoardValue] = useState<number>(0.0);
-  const [freight_and_insurance, setFreightInsurance] = useState<number>(0.0);
+  const [free_on_board_value, setFreeOnBoardValue] = useState<any>(0.0);
+  const [freight_and_insurance, setFreightInsurance] = useState<any>(0.0);
 
   // const [customs_duty, setCustomsDuty] = useState<number>(0.0);
 
@@ -159,20 +159,46 @@ const GoodsCalculator = () => {
             />
           </div>
         </div>
-        {/* Custom duty */}
-        {/* <div className="grid grid-cols-3">
+        {/* VDP */}
+        <div className="grid grid-cols-3">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
-            <p>Customs duty</p>
+            <p>VDP</p>
           </div>
           <div className="col-span-2 grid grid-cols-2">
             <input
               type="text"
-              value={customs_duty}
+              value={
+                parseFloat(free_on_board_value) +
+                parseFloat(freight_and_insurance)
+              }
               className="p-2 col-span-2 bg-zinc-100 rounded-lg "
               placeholder="Custom duty"
             />
           </div>
-        </div> */}
+        </div>
+        {/* Customs Duty */}
+        <div className="grid grid-cols-3">
+          <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
+            <p>Customs Duty</p>
+          </div>
+          <div className="col-span-2 grid grid-cols-2">
+            <input
+              type="text"
+              value={
+                (parseFloat(free_on_board_value) +
+                  parseFloat(freight_and_insurance)) *
+                (getSingleArray(
+                  getSingleArray(goods_data.goods_type, selected_goods_type)
+                    ?.categories,
+                  selected_good
+                )?.duty_rate /
+                  100)
+              }
+              className="p-2 col-span-2 bg-zinc-100 rounded-lg "
+              placeholder="Custom duty"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
