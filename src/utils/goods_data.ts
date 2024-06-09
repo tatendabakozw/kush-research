@@ -50,6 +50,37 @@ export const goods_data = {
         { name: "paraffin", _id: "paraffin", duty_rate: "Rate of duty is 5%" },
       ],
     },
+    {
+      name: "Electronic equipment",
+      _id: "electronic-equipment",
+      categories: [
+        {
+          name: "Cell Phones",
+          _id: "cell-phones",
+          duty_rate: 5,
+        },
+        {
+          name: "Chemicals",
+          _id: "chemicals",
+          duty_rate: 5,
+        },
+        { name: "Diesel", _id: "diesel", duty_rate: 5 },
+        { name: "Enzymes", _id: "enzymes", duty_rate: 5 },
+        {
+          name: "Explosives",
+          _id: "explosives",
+          duty_rate: 5,
+        },
+        {
+          name: "Fireworks",
+          _id: "Fireworks",
+          duty_rate: "Rate of duty is 5%",
+        },
+        { name: "Glue", _id: "glue", duty_rate: "Rate of duty is 5%" },
+        { name: "Petrol", _id: "petrol", duty_rate: "Rate of duty is 5%" },
+        { name: "paraffin", _id: "paraffin", duty_rate: "Rate of duty is 5%" },
+      ],
+    },
   ],
   importation_methods: [
     { name: "air", _id: "air" },
