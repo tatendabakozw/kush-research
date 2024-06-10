@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import PrimaryButton from "../components/buttons/PriimaryButton";
 import CustomInput from "../components/inputs/CustomInput";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -35,7 +37,7 @@ function Login() {
           </div>
           {/* <BorderedHeading text="Welcome Back" /> */}
           <p className="text-2xl heading-text text-center font-semibold mb-8">
-            Sign in to dashboard
+            Sign in to Duty Calculator
           </p>
         </div>
         <form onSubmit={login_user} className="flex flex-col space-y-4">
@@ -55,7 +57,7 @@ function Login() {
               type="password"
             />
             <Link
-              href={"/login"}
+              to={"/login"}
               className="text-xs font-medium  main-link-text text-right"
             >
               Forgot password?
@@ -69,7 +71,7 @@ function Login() {
           />
         </form>
         <Link
-          href={"/register"}
+          to={"/register"}
           className="text-xs font-medium main-link-text text-center"
         >
           Don't have an account?

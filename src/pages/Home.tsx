@@ -4,6 +4,7 @@ import { UserIcon } from "@heroicons/react/24/outline";
 import { ChatBubbleLeftIcon } from "@heroicons/react/24/outline";
 import VehicleCalculator from "@/components/vehicle-calculator/VehicleCalculator";
 import GoodsCalculator from "@/components/goods-calculator/GoodsCalculator";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [open_chat, setOpenChat] = useState(false);
@@ -50,9 +51,12 @@ function Home() {
         <div className="max-w-7xl w-full mx-auto flex flex-row items-center justify-between">
           <p></p>
           <p> Duty Calculator</p>
-          <span className="bg-secondary p-1 rounded-full cursor-pointer">
+          <Link
+            to={"/login"}
+            className="bg-secondary p-1 rounded-full cursor-pointer"
+          >
             <UserIcon height={16} width={16} />
-          </span>
+          </Link>
         </div>
       </div>
       <div className="max-w-7xl mx-auto w-full py-16">
