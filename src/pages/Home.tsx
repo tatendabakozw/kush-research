@@ -17,7 +17,7 @@ function Home() {
   console.log(open_chat);
   return (
     <div className="flex w-full min-h-screen bg-zinc-100 flex-col relative">
-      <div className="flex flex-col space-y-4 absolute bottom-5 right-5">
+      <div className="flex flex-col space-y-4 fixed bottom-5 right-5">
         {open_chat && (
           <div className="flex flex-col space-y-4 w-96 bg-white p-4 rounded-xl border border-ziinc-40">
             <p className="text-sm font-medium">How can we help you?</p>
