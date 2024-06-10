@@ -13,6 +13,8 @@ function Home() {
     { name: "Vehicle Calculator", _id: "vehicle-calcutator" },
     { name: "Goods Calculator", _id: "good-calcutator" },
   ];
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   console.log(open_chat);
   return (
@@ -23,12 +25,16 @@ function Home() {
             <p className="text-sm font-medium">How can we help you?</p>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="enter email"
               className="bg-zinc-100 p-2 rounded-lg"
             />
             <textarea
               name="message"
               id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               rows={5}
               className="bg-zinc-100 p-2 rounded-lg"
               placeholder="enter mnessage"
