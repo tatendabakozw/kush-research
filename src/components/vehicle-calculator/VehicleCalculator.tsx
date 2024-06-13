@@ -72,15 +72,15 @@ const VehicleCalculator = () => {
   }, [customs_duty, value_added_tax, surtax]);
 
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <div className="flex flex-col space-y-4 col-span-3 rounded-xl border border-zinc-100 p-4 bg-white">
+    <div className="grid md:grid-cols-4 col-span-1 gap-4 px-4">
+      <div className="flex flex-col space-y-4 md:col-span-3 col-span-1 rounded-xl border border-zinc-100 p-4 bg-white">
         {/* vehicle makes */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Vehicle Make</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
-            <form className="max-w-7xl col-span-1">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
+            <form className="max-w-7xl md:col-span-1 col-span-2">
               <select
                 id="make"
                 value={make}
@@ -98,11 +98,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* vehicle makes */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Vehicle Type</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <form className="max-w-7xl col-span-1">
               <select
                 id="vehicle_type"
@@ -121,11 +121,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Country of supply */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Country of supply</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <ul className="items-center col-span-3 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
               <RadioItem
                 value={supply_country}
@@ -161,11 +161,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* year of manufacturer */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Year of manufacturer</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={year_of_man}
@@ -176,11 +176,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Invoice value */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Invoice value</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={invoice_value}
@@ -191,11 +191,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Invoice value */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Other Charges</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={other_charges}
@@ -206,11 +206,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Invoice currency */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Invoice Currency</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <ul className="items-center col-span-3 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
               {data.currencies.map((item) => (
                 <RadioItem
@@ -224,11 +224,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Carrier Charge to border post */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Carrier Charge to border post</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               className="p-2 col-span-1 bg-zinc-100 rounded-lg "
@@ -237,11 +237,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Carrier Charge to border currency */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Carrier Charge to border currency</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <ul className="items-center col-span-3 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
               {data.currencies.map((item, index) => (
                 <RadioItem
@@ -255,11 +255,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Rate for exchange */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Rate for exchange</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={1.0}
@@ -269,11 +269,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Value for duty purposes */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Value for duty purposes</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               disabled
@@ -284,11 +284,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Rate for duty */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Rate for duty</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               disabled
@@ -301,11 +301,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Custom duty */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Customs duty</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={customs_duty}
@@ -315,11 +315,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* VTP */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>VTP</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={value_for_duty + customs_duty}
@@ -329,11 +329,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Value added tax */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Value added tax(15%)</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={value_added_tax}
@@ -343,11 +343,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Surtax */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Surtax(35%)</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={surtax}
@@ -357,11 +357,11 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Total Payable */}
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Total Payable</p>
           </div>
-          <div className="col-span-2 grid grid-cols-2">
+          <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
               type="text"
               value={total_payable}
