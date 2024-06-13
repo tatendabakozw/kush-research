@@ -2,20 +2,27 @@
 import { useState } from "react";
 import PrimaryButton from "../components/buttons/PriimaryButton";
 import CustomInput from "../components/inputs/CustomInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { apiUrl } from "@/utils/apiiUrl";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
-  //   const router = useRouter();
+  const router = useNavigate();
 
   const login_user = async () => {
     setLoading(true);
     try {
-      console.log("login user");
-      //   router.push("/overview");
+      const { data } = await axios.post(`${apiUrl}/auth/login`, {
+        email,
+        password,
+      });
+      setLoading(false);
+      console.log("login user", data);
+      router("/");
     } catch (error) {
       setLoading(false);
       setErr("login fail");

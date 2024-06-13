@@ -59,11 +59,12 @@ export const data = {
   ],
   currencies: [
     { name: "AED", _id: "aed" },
-    { name: "YUAN", _id: "YUAN" },
-    { name: "EUR", _id: "EUR" },
-    { name: "GBP", _id: "GBP" },
-    { name: "USD", _id: "USD" },
-    { name: "ZAR/NAD", _id: "ZAR/NAD" },
+    // { name: "YUAN", _id: "YUAN" },
+    // { name: "EUR", _id: "EUR" },
+    // { name: "GBP", _id: "GBP" },
+    // { name: "USD", _id: "USD" },
+    // { name: "ZAR/NAD", _id: "ZAR/NAD" },
+    { name: "ZIG", _id: "zig" },
   ],
   FOB: 1,
 };
