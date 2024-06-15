@@ -23,7 +23,7 @@ function CustomInput({
   type,
 }: Props) {
   return (
-    <div className="flex flex-col space-y-1">
+    <div className="flex flex-col space-y-1 w-full">
       <div className="flex flex-row items-center space-x-1">
         {heading && (
           <p className="text-sm text-zinc-700 capitalize font-medium">
