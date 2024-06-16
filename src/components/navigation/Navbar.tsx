@@ -18,7 +18,7 @@ const Navbar = () => {
               key={index}
               className={`${
                 pathname === item.location
-                  ? "text-slate-900 dark:text-white font-bold"
+                  ? "text-slate-900 font-bold"
                   : "main-link-text"
               } hover:font-semibold`}
             >

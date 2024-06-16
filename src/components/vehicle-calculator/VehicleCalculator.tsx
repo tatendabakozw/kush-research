@@ -16,7 +16,7 @@ const VehicleCalculator = () => {
   const [invoice_currency, setInvoiceCurrency] = useState("");
   const [invoice_value, setInvoiceValue] = useState<any>();
   const [carrier_currency, setCarrierCurrency] = useState("");
-  const [year_of_man, setYearOfMan] = useState("");
+  const [year_of_man, setYearOfMan] = useState<any>();
   const [other_charges, setOtherCharges] = useState<any>();
 
   // calculated values
@@ -166,19 +166,26 @@ const VehicleCalculator = () => {
             <p>Year of manufacturer</p>
           </div>
           <div className="md:col-span-2 col-span-1 grid grid-cols-2">
-            <input
-              type="text"
-              value={year_of_man}
-              onChange={(e) => setYearOfMan(e.target.value)}
-              className="p-2 col-span-1 bg-zinc-100 rounded-lg "
-              placeholder="Year"
-            />
+            <div className="flex flex-col">
+              <input
+                type="text"
+                value={year_of_man}
+                onChange={(e) => setYearOfMan(e.target.value)}
+                className="p-2 col-span-1 bg-zinc-100 rounded-lg "
+                placeholder="Year"
+              />
+              {year_of_man < 2014 && (
+                <p className="text-red-400 text-xs font-medium">
+                  should be from 2014 going forward
+                </p>
+              )}
+            </div>
           </div>
         </div>
         {/* Invoice value */}
         <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
-            <p>Invoice value</p>
+            <p>CIF Value</p>
           </div>
           <div className="md:col-span-2 col-span-1 grid grid-cols-2">
             <input
@@ -191,7 +198,7 @@ const VehicleCalculator = () => {
           </div>
         </div>
         {/* Invoice value */}
-        <div className="grid md:grid-cols-3 grid-cols-1">
+        {/* <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
             <p>Other Charges</p>
           </div>
@@ -204,7 +211,7 @@ const VehicleCalculator = () => {
               placeholder="Invoice value"
             />
           </div>
-        </div>
+        </div> */}
         {/* Invoice currency */}
         <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
@@ -232,7 +239,7 @@ const VehicleCalculator = () => {
             <input
               type="text"
               className="p-2 col-span-1 bg-zinc-100 rounded-lg "
-              placeholder="Carrier Charge to border"
+              placeholder="if self driven leave blank"
             />
           </div>
         </div>
@@ -246,7 +253,7 @@ const VehicleCalculator = () => {
               {data.currencies.map((item, index) => (
                 <RadioItem
                   key={index}
-                  value={item._id}
+                  value={carrier_currency}
                   setValue={setCarrierCurrency}
                   label={item.name}
                 />
@@ -400,7 +407,8 @@ const VehicleCalculator = () => {
             </span>
           </p>
           <p className="text-zinc-500">
-            Surtax: Vehicle is less than 5 years old{" "}
+            Surtax:
+            {year_of_man > 2019 ? "Vehicle is less than 5 years old" : ""}
             <span className="text-zinc-950 font-semibold">{surtax}</span>
           </p>
           <p className="text-zinc-500">
@@ -408,10 +416,10 @@ const VehicleCalculator = () => {
             <span className="text-zinc-950 font-semibold">{total_payable}</span>
           </p>
         </div>
-        <div className="flex flex-row items-center mt-8 space-x-4 w-full ml-auto bg-white border border-zinc-100 rounded-lg p-2">
+        {/* <div className="flex flex-row items-center mt-8 space-x-4 w-full ml-auto bg-white border border-zinc-100 rounded-lg p-2">
           <PrinterIcon height={16} width={16} />
           <p>Print</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

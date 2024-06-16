@@ -5,6 +5,9 @@ import { ChatBubbleLeftIcon } from "@heroicons/react/24/outline";
 import VehicleCalculator from "@/components/vehicle-calculator/VehicleCalculator";
 import GoodsCalculator from "@/components/goods-calculator/GoodsCalculator";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { apiUrl } from "@/utils/apiiUrl";
+import PrimaryButton from "@/components/buttons/PriimaryButton";
 
 function Home() {
   const [open_chat, setOpenChat] = useState(false);
@@ -15,8 +18,27 @@ function Home() {
   ];
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   console.log(open_chat);
+
+  const createNewRequest = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post(`${apiUrl}/requests/create`, {
+        email,
+        message,
+      });
+      console.log(data);
+      setMessage("");
+      setEmail("");
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex w-full min-h-screen bg-zinc-100 flex-col relative">
       <div className="z-50 flex flex-col space-y-4 fixed bottom-5 right-5">
@@ -39,9 +61,11 @@ function Home() {
               className="bg-zinc-100 p-2 rounded-lg"
               placeholder="enter mnessage"
             ></textarea>
-            <button className="bg-zinc-950 text-white rounded-full p-2">
-              Send Message
-            </button>
+            <PrimaryButton
+              text="Send Request"
+              loading={loading}
+              onClick={createNewRequest}
+            />
           </div>
         )}
         <div className="flex self-end">
