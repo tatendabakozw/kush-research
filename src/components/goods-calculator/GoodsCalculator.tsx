@@ -27,7 +27,7 @@ const GoodsCalculator = () => {
 
   // // Calculate customs duty
   // useEffect(() => {
-  //   // Calculate customs duty
+  //   // Calculate customs dutyffreef
   //   const calculatedDuty = value_for_duty * rate_for_duty;
   //   // Format the duty to three decimal places
   //   const formattedDuty = parseFloat(calculatedDuty.toFixed(3));
@@ -117,7 +117,7 @@ const GoodsCalculator = () => {
         {/* Free on board value */}
         <div className="grid grid-cols-3">
           <div className="col-span-1 px-2 text-sm font-medium text-zinc-700">
-            <p>Free on board value</p>
+            <p>Fee on board value</p>
           </div>
           <div className="col-span-2 grid grid-cols-2">
             <input
