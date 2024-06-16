@@ -12,7 +12,7 @@ const GoodsCalculator = () => {
   const [selected_goods_type, setSelectedGoodsType] = useState<any>("");
   const [selected_importation_method, setSelectedImportationMethod] =
     useState<any>("");
-  const [selected_good, setSelectedGood] = useState("");
+  const [selected_good, setSelectedGood] = useState<any>();
   const [free_on_board_value, setFreeOnBoardValue] = useState<any>(0.0);
   const [freight_and_insurance, setFreightInsurance] = useState<any>(0.0);
 
@@ -155,13 +155,7 @@ const GoodsCalculator = () => {
               disabled
               className="p-2 col-span-2 bg-zinc-100 rounded-lg "
               placeholder="Rate for duty"
-              value={`Rate of duty is ${
-                getSingleArray(
-                  getSingleArray(goods_data.goods_type, selected_goods_type)
-                    ?.categories,
-                  selected_good
-                )?.duty_rate
-              }%`}
+              value={`Rate of duty is ${selected_good?.rate}%`}
             />
           </div>
         </div>
@@ -193,12 +187,7 @@ const GoodsCalculator = () => {
               value={
                 (parseFloat(free_on_board_value) +
                   parseFloat(freight_and_insurance)) *
-                (getSingleArray(
-                  getSingleArray(goods_data.goods_type, selected_goods_type)
-                    ?.categories,
-                  selected_good
-                )?.duty_rate /
-                  100)
+                (selected_good?.rate / 100)
               }
               className="p-2 col-span-2 bg-zinc-100 rounded-lg "
               placeholder="Custom duty"
@@ -217,12 +206,7 @@ const GoodsCalculator = () => {
               value={
                 (((parseFloat(free_on_board_value) +
                   parseFloat(freight_and_insurance)) *
-                  (getSingleArray(
-                    getSingleArray(goods_data.goods_type, selected_goods_type)
-                      ?.categories,
-                    selected_good
-                  )?.duty_rate /
-                    100) +
+                  (selected_good?.rate / 100) +
                   (parseFloat(free_on_board_value) +
                     parseFloat(freight_and_insurance))) *
                   14.5) /
