@@ -17,30 +17,36 @@ const GoodsType = () => {
   const response = useFetch(`${apiUrl}/goods_types/all`);
 
   const saveGoodType = async () => {
-    setLoading(false);
     try {
-      const { data } = await axios.post(`${apiUrl}/goods/create`, {
-        name: good_name,
-        rate,
-        parent: selected_type,
-      });
-      console.log(data);
-      setLoading(false);
+      if (good_name) {
+        setLoading(true);
+
+        const { data } = await axios.post(`${apiUrl}/goods/create`, {
+          name: good_name,
+          rate,
+          parent: selected_type,
+        });
+        console.log(data);
+        setLoading(false);
+        setGoodName("");
+        setRate(0);
+      }
     } catch (error) {
       setLoading(false);
     }
   };
 
   const saveNewInfoHandler = async () => {
-    setLoading(true);
     try {
-      const { data } = await axios.post(`${apiUrl}/goods_types/create`, {
-        name: new_type,
-      });
-      console.log(data);
-      setNewType("");
-      // TODO: add new info items
-      setLoading(false);
+      if (new_type) {
+        setLoading(true);
+        const { data } = await axios.post(`${apiUrl}/goods_types/create`, {
+          name: new_type,
+        });
+        console.log(data);
+        setNewType("");
+        setLoading(false);
+      }
     } catch (error) {
       setLoading(false);
     }
