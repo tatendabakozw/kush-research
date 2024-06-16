@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="w-full border-b border-zinc-100">
       <div className="container w-full max-w-7xl mx-auto px-4 flex flex-row items-center space-x-4 py-4">
-        <Link to="/" className="heading-text font-bold">
+        <Link to="/goods_type" className="heading-text font-bold">
           Duty Dashboard
         </Link>
         <div className="md:flex hidden flex-row items-center space-x-4 text-sm font-semibold">
