@@ -61,7 +61,7 @@ const GoodsType = () => {
                 heading="Goods types"
                 value={new_type}
                 setValue={setNewType}
-                placeholder="Enter vehicle make"
+                placeholder="Enter goods type"
               />
               <PrimaryButton
                 onClick={saveNewInfoHandler}

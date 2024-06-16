@@ -215,7 +215,7 @@ const VehicleCalculator = () => {
               {data.currencies.map((item) => (
                 <RadioItem
                   key={item._id}
-                  value={item._id}
+                  value={invoice_currency}
                   setValue={setInvoiceCurrency}
                   label={item.name}
                 />
