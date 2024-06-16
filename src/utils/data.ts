@@ -2,7 +2,7 @@ export const data = {
   nav_options: [
     // { name: 'Home', _id: 'overview', location: '/overview' },
     { name: "Duty Calculator", _id: "home", location: "/" },
-    // { name: "Inventory", _id: "inventory", location: "/inventory" },
+    { name: "Goods Type", _id: "goods_type", location: "/goods_type" },
     // { name: "Pos", _id: "pos", location: "/pos" },
     // { name: "Orders", _id: "orders", location: "/orders" },
   ],

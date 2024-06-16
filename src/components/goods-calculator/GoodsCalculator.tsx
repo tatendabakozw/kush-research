@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { goods_data } from "../../utils/goods_data";
 import RadioItem from "../radio-item/RadioItem";
 import { getSingleArray } from "../../helpers/arrayMethods";
+import { apiUrl } from "@/utils/apiiUrl";
+import { useFetch } from "@/hooks/useFetch";
 
 const GoodsCalculator = () => {
   const [selected_goods_type, setSelectedGoodsType] = useState<any>("");
@@ -13,6 +15,13 @@ const GoodsCalculator = () => {
   const [selected_good, setSelectedGood] = useState("");
   const [free_on_board_value, setFreeOnBoardValue] = useState<any>(0.0);
   const [freight_and_insurance, setFreightInsurance] = useState<any>(0.0);
+
+  const response = useFetch(`${apiUrl}/goods_types/all`);
+  const goods_response = useFetch(
+    `${apiUrl}/goods/all/?parent=${selected_goods_type}`
+  );
+
+  console.log("gods response", goods_response);
 
   // const [customs_duty, setCustomsDuty] = useState<number>(0.0);
 
@@ -41,7 +50,7 @@ const GoodsCalculator = () => {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
               <option selected>Please select type of goods</option>
-              {goods_data.goods_type.map((item) => (
+              {response.data.goods_type?.map((item: any) => (
                 <option key={item._id} value={item._id}>
                   {item.name}
                 </option>
@@ -66,13 +75,10 @@ const GoodsCalculator = () => {
           {selected_goods_type && (
             <div className="col-span-2 grid grid-cols-2">
               <ul className="items-center col-span-3 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
-                {getSingleArray(
-                  goods_data.goods_type,
-                  selected_goods_type
-                )?.categories?.map((item: any) => (
+                {goods_response.data.goods?.map((item: any) => (
                   <RadioItem
                     value={item._id}
-                    setValue={setSelectedGood}
+                    setValue={() => setSelectedGood(item)}
                     key={item._id}
                     label={item.name}
                   />
